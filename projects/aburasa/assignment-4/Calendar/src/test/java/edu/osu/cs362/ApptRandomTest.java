@@ -43,17 +43,28 @@ public class ApptRandomTest {
 		 
 		 
 			for (int iteration = 0; elapsed < TestTimeout; iteration++) {
-				long randomseed =10;//System.currentTimeMillis();
+				long randomseed = Calendar.getInstance().getTimeInMillis();//System.currentTimeMillis();
 	//			System.out.println(" Seed:"+randomseed );
 				Random random = new Random(randomseed);
-				
-				 int startHour=13;
-				 int startMinute=30;
-				 int startDay=10;
-				 int startMonth=4;
-				 int startYear=2017;
+
+				Random inputs = new Random(randomseed);
+			        int a = ValuesGenerator.getRandomIntBetween(inputs, -100, 100); 					
+				 int startHour=a;
+			        a = ValuesGenerator.getRandomIntBetween(inputs, -100, 100); 					
+				 int startMinute=a;
+			        a = ValuesGenerator.getRandomIntBetween(inputs, -100, 100); 					
+				 int startDay=a;
+			        a = ValuesGenerator.getRandomIntBetween(inputs, -100, 100); 					
+				 int startMonth=a;
+				a = ValuesGenerator.getRandomIntBetween(inputs, -10002, 22500); 					
+				 int startYear=a;
 				 String title="Birthday Party";
-				 String description="This is my birthday party.";
+				a = ValuesGenerator.getRandomIntBetween(inputs, 1, 2); 					
+				String description=null;
+				if(a==1){ 
+				 description="This is my birthday party.";
+				}   
+			
 				 //Construct a new Appointment object with the initial data	 
 				 Appt appt = new Appt(startHour,
 				          startMinute ,
